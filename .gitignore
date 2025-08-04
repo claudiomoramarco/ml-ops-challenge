@@ -1,0 +1,9 @@
+# Virtual Environment
+venv/
+
+# MLflow tracking data
+mlruns/
+
+# Python caches
+__pycache__/
+*.pyc

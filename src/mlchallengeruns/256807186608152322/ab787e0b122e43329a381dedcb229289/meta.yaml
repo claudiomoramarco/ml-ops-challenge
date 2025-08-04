@@ -1,0 +1,14 @@
+artifact_uri: file:///home/claudio/Scrivania/ml-ops-challenge/src/mlchallengeruns/256807186608152322/ab787e0b122e43329a381dedcb229289/artifacts
+end_time: 1753894039919
+entry_point_name: ''
+experiment_id: '256807186608152322'
+lifecycle_stage: active
+run_id: ab787e0b122e43329a381dedcb229289
+run_name: RandomForest
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753894038499
+status: 3
+tags: []
+user_id: claudio

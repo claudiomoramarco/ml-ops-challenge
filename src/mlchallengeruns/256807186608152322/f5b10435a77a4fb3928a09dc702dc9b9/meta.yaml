@@ -1,0 +1,14 @@
+artifact_uri: file:///home/claudio/Scrivania/ml-ops-challenge/src/mlchallengeruns/256807186608152322/f5b10435a77a4fb3928a09dc702dc9b9/artifacts
+end_time: 1753894923170
+entry_point_name: ''
+experiment_id: '256807186608152322'
+lifecycle_stage: active
+run_id: f5b10435a77a4fb3928a09dc702dc9b9
+run_name: LogisticRegression
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753894921662
+status: 3
+tags: []
+user_id: claudio

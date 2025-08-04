@@ -1,0 +1,12 @@
+# charts/mlops-api/values.yaml
+
+image:
+  repository: mlops-iris-api
+  tag: latest
+  pullPolicy: Never   # fix questo da errore
+
+replicaCount: 1
+
+service:
+  type: ClusterIP
+  port: 80

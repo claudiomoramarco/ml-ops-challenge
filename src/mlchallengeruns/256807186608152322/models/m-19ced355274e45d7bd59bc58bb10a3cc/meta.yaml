@@ -1,0 +1,10 @@
+artifact_location: file:///home/claudio/Scrivania/ml-ops-challenge/src/mlchallengeruns/256807186608152322/models/m-19ced355274e45d7bd59bc58bb10a3cc/artifacts
+creation_timestamp: 1753894038603
+experiment_id: '256807186608152322'
+last_updated_timestamp: 1753894039917
+model_id: m-19ced355274e45d7bd59bc58bb10a3cc
+model_type: null
+name: model
+source_run_id: ab787e0b122e43329a381dedcb229289
+status: 2
+status_message: null
