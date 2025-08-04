@@ -135,3 +135,28 @@ La pipeline è definita in `.github/workflows/ci.yml` e si attiva ad ogni `push`
 Per la selezione del modello, è stata utilizzata una **convalida incrociata a 5 fold** per ottenere una stima robusta delle performance. Sebbene entrambi i modelli fossero molto performanti, è stato scelto il modello **LogisticRegression**.
 
 **Giustificazione**: Ha mostrato un'**accuratezza media (`cv_accuracy_mean`) leggermente superiore** (`0.973`) rispetto al RandomForest (`0.966`) e una stabilità comparabile. Data la sua maggiore semplicità e interpretabilità a fronte di performance migliori, è risultata la scelta ottimale per questo caso d'uso, seguendo il principio di preferire la soluzione più semplice ed efficace.
+
+
+---
+
+## Scelte Progettuali e Giustificazioni
+
+### Scelta del Modello
+
+Per la selezione del modello, è stata utilizzata una **convalida incrociata a 5 fold** per ottenere una stima robusta delle performance. Sebbene entrambi i modelli fossero molto performanti, è stato scelto il modello **LogisticRegression**.
+
+**Giustificazione**: Ha mostrato un'**accuratezza media (`cv_accuracy_mean`) leggermente superiore** (`0.973`) rispetto al RandomForest (`0.966`) e una stabilità comparabile. Data la sua maggiore semplicità e interpretabilità a fronte di performance migliori, è risultata la scelta ottimale per questo caso d'uso, seguendo il principio di preferire la soluzione più semplice ed efficace.
+
+### Strategia di Testing
+
+- **Test Funzionali**: I test con `pytest` sono stati implementati per coprire il "happy path" dell'API, assicurando che gli endpoint `/health` e `/predict` funzionino correttamente con un payload valido. Per questa challenge, è stato testato un singolo caso di predizione per la classe "setosa" per validare il flusso end-to-end.
+  - **Sviluppo Futuro**: In un ambiente di produzione reale, questi test verrebbero estesi utilizzando la parametrizzazione di `pytest` (`@pytest.mark.parametrize`) per coprire sistematicamente tutte le classi del modello, casi limite (es. payload vuoti o malformati) e scenari di errore.
+
+- **Test di Carico**: Lo stress test con `Locust` ha confermato che l'API è stabile e performante sotto un carico simulato di 100 utenti concorrenti, senza registrare fallimenti e mantenendo tempi di risposta bassi.
+
+### Versioning delle Dipendenze
+
+- **Sviluppo Locale**: Durante lo sviluppo, il file `requirements.txt` è stato generato con `pip freeze` per garantire la riproducibilità dell'ambiente di training.
+- **CI/CD**: Per la pipeline di CI/CD, il `requirements.txt` è stato semplificato per includere solo le dipendenze di primo livello. Questa scelta garantisce una maggiore flessibilità e compatibilità con l'ambiente pulito del runner di GitHub Actions, evitando errori di build dovuti a versioni di sotto-dipendenze troppo specifiche.
+
+---
