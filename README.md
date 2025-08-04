@@ -62,6 +62,8 @@ pip install -r requirements.txt
 mlflow ui
 
 # In un secondo terminale, esegui lo script di addestramento
+#nota bene, ho usato python3, potrebbe anche funzionare solo con python
+#una volta fatto il train, potrà essere visibile su mlflow
 python src/train.py
 ```
 Apri `http://127.0.0.1:5000` nel browser per visualizzare gli esperimenti.
