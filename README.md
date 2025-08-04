@@ -1,5 +1,4 @@
 # MLOps Challenge - API di Classificazione Iris
-
 Questo repository contiene la soluzione completa per la MLOps Challenge. Il progetto implementa un intero ciclo di vita MLOps: dall'addestramento e tracciamento di modelli di classificazione, fino al deployment come API REST containerizzata e gestita tramite una pipeline di CI/CD automatizzata.
 
 ## Indice
@@ -126,26 +125,14 @@ La pipeline è definita in `.github/workflows/ci.yml` e si attiva ad ogni `push`
 2.  **Build, Scan & Push**: Costruisce l'immagine Docker, la scansiona per vulnerabilità `CRITICAL` e `HIGH` con `Trivy` e, solo sul branch `main`, la carica su GitHub Container Registry.
 3.  **Helm Lint**: Controlla la sintassi della chart Helm.
 
----
 
 ## Scelte Progettuali e Giustificazioni
 
 ### Scelta del Modello
 
-Per la selezione del modello, è stata utilizzata una **convalida incrociata a 5 fold** per ottenere una stima robusta delle performance. Sebbene entrambi i modelli fossero molto performanti, è stato scelto il modello **LogisticRegression**.
+Per la selezione del modello, è stata utilizzata una **convalida incrociata a 5 fold** , sono state anche precedentemente aggiunte altre metriche per ottenere maggiori dettagli dal dataset, ma dato che il dataset stesso rapresentava un livello di complessità basso per dati, allora per ottenere una stima robusta delle performance. Sebbene entrambi i modelli fossero molto performanti, è stato scelto il modello **LogisticRegression**.
 
-**Giustificazione**: Ha mostrato un'**accuratezza media (`cv_accuracy_mean`) leggermente superiore** (`0.973`) rispetto al RandomForest (`0.966`) e una stabilità comparabile. Data la sua maggiore semplicità e interpretabilità a fronte di performance migliori, è risultata la scelta ottimale per questo caso d'uso, seguendo il principio di preferire la soluzione più semplice ed efficace.
-
-
----
-
-## Scelte Progettuali e Giustificazioni
-
-### Scelta del Modello
-
-Per la selezione del modello, è stata utilizzata una **convalida incrociata a 5 fold** per ottenere una stima robusta delle performance. Sebbene entrambi i modelli fossero molto performanti, è stato scelto il modello **LogisticRegression**.
-
-**Giustificazione**: Ha mostrato un'**accuratezza media (`cv_accuracy_mean`) leggermente superiore** (`0.973`) rispetto al RandomForest (`0.966`) e una stabilità comparabile. Data la sua maggiore semplicità e interpretabilità a fronte di performance migliori, è risultata la scelta ottimale per questo caso d'uso, seguendo il principio di preferire la soluzione più semplice ed efficace.
+**Giustificazione**: Ha mostrato un'**accuratezza media (`cv_accuracy_mean`) leggermente superiore** (`0.973`) rispetto al RandomForest (`0.966`) e una stabilità comparabile. Data la sua maggiore semplicità e interpretabilità a fronte di performance migliori, è risultata la scelta ottimale per questo caso d'uso, seguendo il principio di preferire la soluzione più semplice ed efficace. è stata valutata anche la velocità in termini di esecuzione, data da MLflow. può essere anche indice di valutazione
 
 ### Strategia di Testing
 
@@ -159,3 +146,14 @@ Per la selezione del modello, è stata utilizzata una **convalida incrociata a 5
 - **CI/CD**: Per la pipeline di CI/CD, il `requirements.txt` è stato semplificato per includere solo le dipendenze di primo livello. Questa scelta garantisce una maggiore flessibilità e compatibilità con l'ambiente pulito del runner di GitHub Actions, evitando errori di build dovuti a versioni di sotto-dipendenze troppo specifiche. Aggiungo anche qui che dato il tempo poco necessario, magari si potevano approfondire meglio delle CI.
 
 ---
+
+
+---
+
+## Ringraziamenti
+
+Grazie per l'opportunità datami per questa sfida, spero di poter imparare sempre più e poter far parte del team :D
+
+Vorrei ringraziare il team di Kiratech per questa opportunità. La challenge è stata stimolante e altamente formativa, permettendomi di applicare e approfondire concretamente l'intero ciclo di vita MLOps.
+
+Affrontare e risolvere le sfide tecniche incontrate, in particolare nella configurazione degli ambienti di virtualizzazione e deployment, è stata un'esperienza di apprendimento preziosa che ha consolidato le mie competenze di problem-solving.
