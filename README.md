@@ -149,14 +149,13 @@ Per la selezione del modello, è stata utilizzata una **convalida incrociata a 5
 
 ### Strategia di Testing
 
-- **Test Funzionali**: I test con `pytest` sono stati implementati per coprire il "happy path" dell'API, assicurando che gli endpoint `/health` e `/predict` funzionino correttamente con un payload valido. Per questa challenge, è stato testato un singolo caso di predizione per la classe "setosa" per validare il flusso end-to-end.
-  - **Sviluppo Futuro**: In un ambiente di produzione reale, questi test verrebbero estesi utilizzando la parametrizzazione di `pytest` (`@pytest.mark.parametrize`) per coprire sistematicamente tutte le classi del modello, casi limite (es. payload vuoti o malformati) e scenari di errore.
+- **Test Funzionali**: I test con `pytest` sono stati implementati assicurando che gli endpoint `/health` e `/predict` funzionino correttamente con un payload valido. Per questa challenge, è stato testato un singolo caso di predizione per la classe "setosa" per validare il flusso end-to-end.
 
-- **Test di Carico**: Lo stress test con `Locust` ha confermato che l'API è stabile e performante sotto un carico simulato di 100 utenti concorrenti, senza registrare fallimenti e mantenendo tempi di risposta bassi.
+- **Test di Carico**: Lo stress test con `Locust` ha confermato che l'API è stabile e performante sotto un carico simulato di 10 utenti (dai parametri si puo modificare il numero di utenti) concorrenti, senza registrare fallimenti , anche se data la poca mole di carico di lavoro era prevedibile avere una buona stabilità di risposta
 
 ### Versioning delle Dipendenze
 
-- **Sviluppo Locale**: Durante lo sviluppo, il file `requirements.txt` è stato generato con `pip freeze` per garantire la riproducibilità dell'ambiente di training.
-- **CI/CD**: Per la pipeline di CI/CD, il `requirements.txt` è stato semplificato per includere solo le dipendenze di primo livello. Questa scelta garantisce una maggiore flessibilità e compatibilità con l'ambiente pulito del runner di GitHub Actions, evitando errori di build dovuti a versioni di sotto-dipendenze troppo specifiche.
+- **Sviluppo Locale**: Durante lo sviluppo, il file `requirements.txt` è stato generato con `pip freeze` per garantire la riproducibilità dell'ambiente di training.(anche se questo mi ha portato numerosi conflitti dato che importava piu requisiti di quelli veramente necessari)
+- **CI/CD**: Per la pipeline di CI/CD, il `requirements.txt` è stato semplificato per includere solo le dipendenze di primo livello. Questa scelta garantisce una maggiore flessibilità e compatibilità con l'ambiente pulito del runner di GitHub Actions, evitando errori di build dovuti a versioni di sotto-dipendenze troppo specifiche. Aggiungo anche qui che dato il tempo poco necessario, magari si potevano approfondire meglio delle CI.
 
 ---
